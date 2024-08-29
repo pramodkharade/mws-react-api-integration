@@ -47,4 +47,4 @@ jobs:
     - name: Upload SARIF results
       uses: github/codeql-action/upload-sarif@v2
       with:
-        sarif_file: result/javascript.sarif  # Ensure this matches the actual file location
+        sarif_file: result/javascript.sarif
