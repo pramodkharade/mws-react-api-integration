@@ -28,10 +28,10 @@ jobs:
         node-version: '20.x'
 
     - name: Install npm dependencies
-      run: npm install || true  # Proceed even if there are warnings/errors
+      run: npm install || true
 
     - name: Build project
-      run: npm run build || true  # Proceed even if there are warnings/errors
+      run: npm run build || true
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
@@ -41,7 +41,10 @@ jobs:
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
 
+    - name: List files in result directory
+      run: ls -R result
+
     - name: Upload SARIF results
       uses: github/codeql-action/upload-sarif@v2
       with:
-        sarif_file: results/javascript.sarif
+        sarif_file: result/javascript.sarif  # Ensure this matches the actual file location
